@@ -68,6 +68,7 @@
               <tbody>
                 @foreach ($packages as $key => $item)  
                 <tr>
+                  <td style="display:none;" class="text-center"><input id="alternatif{{ $item->id }}" name="alternatif{{ $item->id }}" class="cb-paket" type="checkbox" value="true" checked></td>
                   <td><input id="alternatif{{ $item->id }}" name="alternatif{{ $item->id }}" class="cb-paket" type="hidden" value="true" checked>  {{ $item->name }}</td>
                   <td>{{ date_dmy($item->start_date) }}</td>
                   <td>{{ date_dmy($item->end_date) }}</td>
@@ -104,21 +105,21 @@
     })
 
     function validate() {
-      // var valid = true;
+      var valid = true;
 
-      // if ($('.cb-paket:checked').length < 1) {
-      //   valid = false;
-      // }
+      if ($('.cb-paket:checked').length < 1) {
+        valid = false;
+      }
 
-			// if (!valid) {
-			// 		swal({
-      //         title: "Perhatian",
-      //         text: "Maaf setidaknya harus ada 1 paket yang diceklis!",
-      //         icon: 'warning'
-      //     });
-			// } else {
+			if (!valid) {
+					swal({
+              title: "Perhatian",
+              text: "Maaf setidaknya harus ada 1 paket yang diceklis!",
+              icon: 'warning'
+          });
+			} else {
         $('#form-submit').submit();
-      // }
+      }
 		}
 
     function checkMax(ini) {
