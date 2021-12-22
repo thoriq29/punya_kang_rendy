@@ -63,10 +63,10 @@ function getCriteriaDisplayName($value, $criteriaName)
 {
 	if($criteriaName == "Harga") {
 		return getDescendingType($value);
-	} else if($criteriaName == "Wisata" || $criteriaName == "Durasi") {
+	} else if($criteriaName == "Wisata" || $criteriaName == "Fasilitas") {
 		return getAscendingType($value);
 	}
-	else if($criteriaName == "Fasilitas") {
+	else if($criteriaName == "Durasi") {
 		return getDurasiType($value);
 	}
 	return '';
